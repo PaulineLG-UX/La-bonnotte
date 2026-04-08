@@ -10,7 +10,7 @@
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
 :root {
   --creme:  #EDE3CA;
-  --rouge:  #16aac4;
+  --rouge:  #E8172B;
   --jaune:  #e2d3a9;
   --noir:   #162B35;
 }
@@ -44,7 +44,7 @@ nav a:hover { opacity:1; }
 /* MARQUEE */
 .marquee-wrap { background:var(--noir); padding:0.9rem 0; overflow:hidden; border-bottom:2px solid var(--noir); }
 .marquee-track { display:flex; white-space:nowrap; animation:marquee 22s linear infinite; width:max-content; }
-.marquee-track span { font-size:1rem; color:var(--creme); letter-spacing:0.12em; padding:0 2rem; opacity:0.75; }
+.marquee-track span { font-size:1rem; color:var(--creme); letter-spacing:0.12em; padding:0 2rem; opacity:1; }
 .marquee-track .sep { color:var(--jaune); opacity:1; padding:0; }
 @keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
 
@@ -90,7 +90,7 @@ nav a:hover { opacity:1; }
 .egerie-img-wrap img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
 .egerie-content { display:flex; flex-direction:column; align-items:center; position:relative; z-index:2; }
 .egerie-patates { position:absolute; inset:0; pointer-events:none; z-index:1; }
-.patate-fly { position:absolute; animation:flyAround linear infinite; opacity:0.75; }
+.patate-fly { position:absolute; animation:flyAround linear infinite; opacity:1; }
 .patate-fly:nth-child(1)  { top:10%; left:22%; animation-duration:7s;   animation-delay:0s;    font-size:5rem; }
 .patate-fly:nth-child(2)  { top:12%; right:22%; animation-duration:9s;  animation-delay:-2s;   font-size:1.2rem; }
 .patate-fly:nth-child(3)  { top:50%; left:18%; animation-duration:6s;   animation-delay:-1s;   font-size:6rem; }
@@ -142,7 +142,7 @@ nav a:hover { opacity:1; }
 .saviez-tag { display:inline-block; background:var(--jaune); color:var(--noir); font-size:0.85rem; letter-spacing:0.1em; padding:0.45rem 1rem; margin-top:0.8rem; width:fit-content; }
 
 /* TEMOIGNAGES */
-.temoignages { padding:7rem 3rem; background:var(--jaune); border-bottom:2px solid var(--noir); }
+.temoignages { padding:7rem 3rem; background:var(--jaune); }
 .temoignages-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
 .temoignage { background:var(--creme); border:2px solid var(--noir); padding:2rem; display:flex; flex-direction:column; justify-content:space-between; transition:transform 0.25s; }
 .temoignage:hover { transform:rotate(-1.2deg); }
@@ -208,7 +208,7 @@ footer p { font-size:0.8rem; color:var(--creme); opacity:0.2; }
     <li><a href="#pourquoi" onclick="showPage('main')">Pourquoi</a></li>
     <li><a href="#offres" onclick="showPage('main')">Offres</a></li>
     <li><a href="#avis" onclick="showPage('main')">Avis</a></li>
-    <li><a href="#" id="nav-generateur" onclick="showPage('generateur');return false;">Générateur</a></li>
+    <li><a href="#" id="nav-generateur" onclick="showPage('generateur');return false;">Jeu</a></li>
     <li><a href="#offres" class="btn-nav" onclick="showPage('main')">Commander</a></li>
   </ul>
 </nav>
@@ -382,6 +382,18 @@ footer p { font-size:0.8rem; color:var(--creme); opacity:0.2; }
   </div>
 </section>
 
+<section style="padding:2rem 3rem; background:var(--creme); display:flex; justify-content:center;">
+  <div style="width:100%; max-width:1280px; background:var(--jaune); border:2px solid var(--noir); display:flex; align-items:center; justify-content:space-between; gap:2rem; padding:1.2rem 2rem;">
+    <div style="display:flex; align-items:center; gap:1.5rem;">
+      <div style="font-size:2.2rem; line-height:1; flex-shrink:0;">🥔</div>
+      <div>
+        <div style="font-family:Bebas Neue,sans-serif; font-size:1.2rem; color:var(--noir); letter-spacing:0.05em;">Tanguy défie les patates — <span style="color:var(--rouge);">"Jeu Officiel PATATE°"</span></div>
+        <div style="font-family:Bebas Neue,sans-serif; font-size:0.85rem; color:var(--noir); opacity:0.5; letter-spacing:0.04em;">Sautez par-dessus les Bonnottes. Ne mourez pas. Espace · Clic · Tap pour jouer.</div>
+      </div>
+    </div>
+    <button onclick="showPage('generateur')" style="background:var(--noir); color:var(--creme); font-family:Bebas Neue,sans-serif; font-size:0.95rem; letter-spacing:0.12em; padding:0.7rem 1.8rem; border:none; cursor:pointer; white-space:nowrap; flex-shrink:0; transition:background 0.2s;" onmouseover="this.style.background='var(--rouge)'" onmouseout="this.style.background='var(--noir)'">Jouer →</button>
+  </div>
+</section>
 <section class="cta-final">
   <span class="section-label">— LA RÉVOLUTION TUBERCULE</span>
   <h2 class="cta-title">La patate<br>arrive.</h2>
@@ -389,6 +401,7 @@ footer p { font-size:0.8rem; color:var(--creme); opacity:0.2; }
   <button class="btn-cta">Commander avant la fin →</button>
   <p class="cta-note">Livraison J+1 · Stock limité · Cultivée sur l'île de Noirmoutier depuis le XVIIe siècle</p>
 </section>
+
 
 <footer>
   <div class="footer-logo">PATATE<span>°</span></div>
@@ -406,12 +419,27 @@ footer p { font-size:0.8rem; color:var(--creme); opacity:0.2; }
 <div id="generateur-page" style="display:none;">
 <div class="game-page">
   <div class="game-header">
-    <div class="section-label">— TECHNOLOGIE PATATE°</div>
+    <div class="section-label">— JEU OFFICIEL PATATE°</div>
     <h2 style="font-size:clamp(2.5rem,5vw,5rem); line-height:0.9; margin-bottom:0.8rem;">Tanguy vs<br>les Patates.</h2>
     <p style="font-size:1rem; opacity:0.3; letter-spacing:0.1em;">ESPACE OU CLIC POUR SAUTER · ÉVITEZ LES BONNOTTES</p>
   </div>
   <div class="game-canvas-wrap">
     <canvas id="patateCanvas"></canvas>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); border-top:2px solid var(--noir);">
+    <div style="padding:3rem; border-right:2px solid var(--noir); text-align:center;">
+      <div style="font-size:0.75rem; letter-spacing:0.2em; opacity:0.35; margin-bottom:0.8rem;">— SCORE ACTUEL</div>
+      <div id="display-score" style="font-size:5rem; line-height:1; color:var(--rouge);">00000</div>
+    </div>
+    <div style="padding:3rem; border-right:2px solid var(--noir); text-align:center;">
+      <div style="font-size:0.75rem; letter-spacing:0.2em; opacity:0.35; margin-bottom:0.8rem;">— RECORD</div>
+      <div id="display-hi" style="font-size:5rem; line-height:1; color:var(--noir);">00000</div>
+    </div>
+    <div style="padding:3rem; text-align:center;">
+      <div style="font-size:0.75rem; letter-spacing:0.2em; opacity:0.35; margin-bottom:0.8rem;">— PATATES ÉVITÉES</div>
+      <div id="display-dodged" style="font-size:5rem; line-height:1; color:var(--jaune); -webkit-text-stroke:1px var(--noir);">0</div>
+    </div>
   </div>
 </div>
 </div>
@@ -426,7 +454,7 @@ function showPage(page) {
     main.style.display = 'none';
     gen.style.display  = 'block';
     navG.style.opacity = '1';
-    navG.style.color   = '#16aac4';
+    navG.style.color   = '#E8172B';
     window.scrollTo(0,0);
     // Resize canvas now that it's visible
     setTimeout(function(){ window.gameResize && window.gameResize(); }, 50);
@@ -455,6 +483,7 @@ function showPage(page) {
   let obstacles = [];
   let nextObs   = 100;
   let clouds    = [];
+  let totalDodged = 0;
 
   function resize() {
     dpr = window.devicePixelRatio || 1;
@@ -479,7 +508,8 @@ function showPage(page) {
 
   function jump() {
     if (state === 'idle' || state === 'dead') {
-      state='running'; score=0; obstacles=[]; nextObs=100;
+      state='running'; score=0; obstacles=[]; nextObs=100; totalDodged=0;
+      const dd=document.getElementById('display-dodged'); if(dd) dd.textContent='0';
       T.y = groundY - T.h; T.vy = 0; T.jumping = false;
     }
     if (state === 'running' && !T.jumping) {
@@ -521,7 +551,14 @@ function showPage(page) {
       nextObs = Math.max(45, 110 - score/60) + Math.random()*30;
     }
     for (const o of obstacles) o.x -= spd;
+    const before = obstacles.length;
     obstacles = obstacles.filter(o => o.x + o.w > -60);
+    const dodged = before - obstacles.length;
+    if (dodged > 0) {
+      totalDodged += dodged;
+      const dd = document.getElementById('display-dodged');
+      if (dd) dd.textContent = totalDodged;
+    }
 
     // Clouds
     for (const c of clouds) { c.x -= spd * 0.15; if (c.x + c.s < 0) c.x = W + c.s; }
@@ -535,6 +572,11 @@ function showPage(page) {
         if (score > hiScore) hiScore = score;
       }
     }
+    // Update DOM score displays
+    const ds = document.getElementById('display-score');
+    const dh = document.getElementById('display-hi');
+    if (ds) ds.textContent = String(score).padStart(5,'0');
+    if (dh) dh.textContent = String(hiScore).padStart(5,'0');
   }
 
   function drawTanguy() {
@@ -603,11 +645,11 @@ function showPage(page) {
       const crop = Math.min(iw, ih * 0.62);
       ctx.drawImage(tanguyImg, (iw-crop)/2, 0, crop, crop, hx-hr, hy-hr, hr*2, hr*2);
     } else {
-      ctx.fillStyle = '#16aac4'; ctx.beginPath(); ctx.arc(hx,hy,hr,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle = '#E8172B'; ctx.beginPath(); ctx.arc(hx,hy,hr,0,Math.PI*2); ctx.fill();
     }
     ctx.restore();
 
-    ctx.strokeStyle = state === 'dead' ? '#e74c3c' : '#16aac4';
+    ctx.strokeStyle = state === 'dead' ? '#e74c3c' : '#E8172B';
     ctx.lineWidth = 3 * dpr;
     ctx.beginPath(); ctx.arc(hx, hy, hr, 0, Math.PI*2); ctx.stroke();
 
@@ -631,7 +673,7 @@ function showPage(page) {
     // Ground
     ctx.fillStyle = '#d4c9a8';
     ctx.fillRect(0, groundY, W, H - groundY);
-    ctx.fillStyle = '#16aac4';
+    ctx.fillStyle = '#E8172B';
     ctx.fillRect(0, groundY, W, 3*dpr);
 
     // Ground dashes
@@ -647,6 +689,7 @@ function showPage(page) {
       ctx.save();
       ctx.translate(o.x + o.w/2, o.y + o.h/2);
       ctx.rotate(o.rot);
+      ctx.globalAlpha = 1;
       ctx.font = `${o.h * 1.1}px serif`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
@@ -685,7 +728,7 @@ function showPage(page) {
     if (state === 'dead') {
       ctx.fillStyle = 'rgba(237,227,202,0.82)';
       ctx.fillRect(0, 0, W, H);
-      ctx.fillStyle = '#16aac4';
+      ctx.fillStyle = '#E8172B';
       ctx.textAlign = 'center';
       ctx.font = `bold ${W*0.05}px 'Bebas Neue', sans-serif`;
       ctx.fillText('PATATE !', W/2, H/2 - 26*dpr);
